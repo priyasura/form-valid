@@ -1,8 +1,10 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from '../styles/Home.module.css';
 import { useForm } from 'react-hook-form';
+import * as EmailValidator from 'email-validator';
 export default function Validate() {
-    const [ButtonDisabled,setButtonDisabled] = useState(true)
+    const [mail, setMail] = useState(false)
+    const [ButtonDisabled, setButtonDisabled] = useState(true)
     // useEffect(()=>{
     //     if(Y||N)
     //     {
@@ -14,7 +16,7 @@ export default function Validate() {
     //         setButtonDisabled(x);
     //     }
     // })
-   
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [Y, setY] = useState(false)
     const [N, setN] = useState(false)
@@ -46,24 +48,29 @@ export default function Validate() {
             setN(N)
         }
     }
-    // if(N==false && Y==false) {
-    //     alert("valid choice");
-    // }
     const myfun = () => {
-        alert('submitted sucessfully');
-        console.log("done");
-    }
-    useEffect(()=>{
-        if(Y||N)
-        {
-            const x=false;
-             setButtonDisabled(x); 
+        if(EmailValidator.validate(mail)) {
+            alert("sucesssfully")
         }
         else{
-                    const x=true;
-                    setButtonDisabled(x);
-                }
+            alert("please check mail!!");
+        }
+    
+    }
+    useEffect(() => {
+        if (Y || N ) {
+            const x = false;
+            setButtonDisabled(x);
+        }
+        else {
+            const x = true;
+            setButtonDisabled(x);
+        }
     })
+    const mailhandler = (e) => {
+        console.log("name is", e.target.value);
+        setMail(e.target.value);
+    }
     return (
         <div className='row'>
             <div className={styles.card}>
@@ -80,9 +87,10 @@ export default function Validate() {
 
                         <div className="form-group" style={{ paddingTop: '3%' }}>
                             <label htmlFor="email" style={{ marginLeft: '-60%' }}>email*</label><br></br>
-                            <input type="email" name="email" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }}></input>
-                            </div>
-                            <div className="form-group" style={{ paddingTop: '3%' }}>
+                            <input type="email" autoComplete="email" required onChange={(value) => mailhandler(value)} style={{ width: '70%', padding: '10px', borderRadius: '5px' }} /><br></br>
+                            {/* <input type="email" name="email" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }}></input> */}
+                        </div>
+                        <div className="form-group" style={{ paddingTop: '3%' }}>
                             <label htmlFor="phonenumber" style={{ marginLeft: '-48%' }}>phonenumber*</label><br></br>
                             <input type="text" name="phonenumber" pattern="[0-9]*" minLength="10" maxLength="10" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }} />
                         </div>
@@ -116,7 +124,7 @@ export default function Validate() {
                             <input type="radio" id="no" name="option" value="no" /><label>No</label> */}
 
                             <input type="radio" name="yes" value="yes" checked={Y} onClick={() => handleClickY()} />Yes
-                           <input type="radio" name="no" value="no" checked={N} onClick={() => handleClickN()} />No
+                            <input type="radio" name="no" value="no" checked={N} onClick={() => handleClickN()} />No
                         </div>
                         <br />
                         <div>
