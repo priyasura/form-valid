@@ -74,7 +74,7 @@ export default function Validate() {
                             <label htmlFor="fullname" style={{ marginLeft: '-60%' }}>Name*</label><br></br>
                             <input text="text" style={{ width: '70%', padding: '10px', borderRadius: '5px' }} {...register('name', { required: true, minLength: 6 })} />
                             {errors.name && errors.name.type == "required" && <p style={{ color: "red" }}>please enter the fullname</p>}
-                            {errors.name && errors.name.type == "minLength" && <p style={{ color: "orange" }}>Please enter please enter name with minLength 6</p>}
+                            {errors.name && errors.name.type == "minLength" && <p style={{ color: "orange" }}>Please enter name with minLength 6</p>}
 
                         </div>
 
