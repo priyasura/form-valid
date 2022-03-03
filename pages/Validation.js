@@ -80,6 +80,9 @@ export default function Validate() {
 
                         <div className="form-group" style={{ paddingTop: '3%' }}>
                             <label htmlFor="email" style={{ marginLeft: '-60%' }}>email*</label><br></br>
+                            <input type="email" name="email" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }}></input>
+                            </div>
+                            <div className="form-group" style={{ paddingTop: '3%' }}>
                             <label htmlFor="phonenumber" style={{ marginLeft: '-48%' }}>phonenumber*</label><br></br>
                             <input type="text" name="phonenumber" pattern="[0-9]*" minLength="10" maxLength="10" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }} />
                         </div>
