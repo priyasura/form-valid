@@ -49,12 +49,14 @@ export default function Validate() {
         }
     }
     const myfun = () => {
-        if(EmailValidator.validate(mail)) {
+        // if()
+        // if(EmailValidator.validate(mail)) {
             alert("sucesssfully")
-        }
-        else{
+            console.log("....",EmailValidator.validate("test@gma.com"))
+        // }
+        // else{
             alert("please check mail!!");
-        }
+        // }
     
     }
     useEffect(() => {
