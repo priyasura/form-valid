@@ -55,7 +55,7 @@ export default function Validate() {
                         </div>
 
                         <div className="form-group"style={{paddingTop:'3%'}}>
-                            <label htmlFor="email" style={{marginLeft:'-60%'}}>email*</label><br></br>
+                            <label htmlFor="email" style={{marginLeft:'-60%'}}required >email*</label><br></br>
                             <input type="email" name="email" style={{ width: '70%', padding: '10px', borderRadius: '5px' }} />
                         </div>
                         <div className="form-group" style={{paddingTop:'3%'}}>
