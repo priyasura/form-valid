@@ -1,4 +1,4 @@
-import Validate from './Validate'
+import Validate from './Validation'
 import styles from '../styles/Home.module.css';
 export default function Home() {
   return (
