@@ -50,13 +50,14 @@ export default function Validate() {
     }
     const myfun = () => {
         // if()
-        if(EmailValidator.validate(mail)) {
+        if(EmailValidator.validate(mail)){
             alert("sucesssfully")
-            console.log("....",EmailValidator.validate("test@gma.com"))
-         }
+            console.log("....",EmailValidator.validate("test@gmail.com"))
+        }
+        // }
         else{
             alert("please check mail!!");
-        }
+         }
     
     }
     useEffect(() => {
@@ -69,10 +70,10 @@ export default function Validate() {
             setButtonDisabled(x);
         }
     })
-    // const mailhandler = (e) => {
-    //     console.log("name is", e.target.value);
-    //     setMail(e.target.value);
-    // }
+    const mailhandler = (e) => {
+        console.log("name is", e.target.value);
+        setMail(e.target.value);
+    }
     return (
         <div className='row'>
             <div className={styles.card}>
@@ -89,7 +90,7 @@ export default function Validate() {
 
                         <div className="form-group" style={{ paddingTop: '3%' }}>
                             <label htmlFor="email" style={{ marginLeft: '-60%' }}>email*</label><br></br>
-                            <input type="email" autoComplete="email" pattern="[[a-z0-9]+@[a-z]+\.[a-z]{2,3}]" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }} /><br></br>
+                            <input type="email" autoComplete="email" required onChange={(value) => mailhandler(value)} style={{ width: '70%', padding: '10px', borderRadius: '5px' }} /><br></br>
                             {/* <input type="email" name="email" required style={{ width: '70%', padding: '10px', borderRadius: '5px' }}></input> */}
                         </div>
                         <div className="form-group" style={{ paddingTop: '3%' }}>
